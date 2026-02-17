@@ -26,7 +26,7 @@ bun start
 ### Requisiti
 
 1. **Homepage** - Mostrare i selettori per lingua e valuta (ottenuti dall'endpoint `/params`)
-2. **Lista Paesi** - Mostrare la lista completa dei paesi nella lingua e valuta selezionate (dall'endpoint `/countries`)
+2. **Lista Paesi** - Mostrare la lista completa dei paesi nella lingua e valuta selezionate (dall'endpoint `/countries`) con la possibiltà di ricerca
 3. **Dettaglio Paese** - Al click su un paese, mostrare la lista dei piani disponibili con le relative caratteristiche (dall'endpoint `/countries?id=XX`)
 
 ### Bonus
