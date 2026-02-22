@@ -79,7 +79,7 @@ export default function Homepage() {
               ))
             }
           </Picker>
-          {loading && <ActivityIndicator />}
+          {loading && <ActivityIndicator size={'large'} />}
         </View>
       </View>
     </ScrollView >
@@ -90,12 +90,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: background.secondary,
     padding: 6,
-    flex: 1
+    height: '100%',
+    justifyContent: 'flex-start'
   },
   pickerContainer: {
     flexDirection: 'column',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: 20
   },
   pickerItem: {
     flex: 1,
