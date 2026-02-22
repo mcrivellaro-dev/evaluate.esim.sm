@@ -45,44 +45,46 @@ export default function Homepage() {
   }, [])
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* <EditScreenInfo path="app/(tabs)/homepage/index.tsx" /> */}
-      <View style={styles.pickerContainer}>
-        <View style={styles.pickerItem}>
-          <Text>Language</Text>
-          <Picker
-            selectedValue={languageContext?.selectedLanguage}
-            onValueChange={(itemValue, itemIndex) => {
-              languageContext?.setSelectedLanguage(itemValue)
-              AsyncStorage.setItem('language', itemValue)
-            }
-            }>
-            {
-              languageContext?.languages?.map((language: { value: string, label: string }) => (
-                <Picker.Item label={language.value} value={language.label} key={language.label} />
-              ))
-            }
-          </Picker>
+    <View style={{ backgroundColor: background.secondary, flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* <EditScreenInfo path="app/(tabs)/homepage/index.tsx" /> */}
+        <View style={styles.pickerContainer}>
+          <View style={styles.pickerItem}>
+            <Text>Language</Text>
+            <Picker
+              selectedValue={languageContext?.selectedLanguage}
+              onValueChange={(itemValue, itemIndex) => {
+                languageContext?.setSelectedLanguage(itemValue)
+                AsyncStorage.setItem('language', itemValue)
+              }
+              }>
+              {
+                languageContext?.languages?.map((language: { value: string, label: string }) => (
+                  <Picker.Item label={language.value} value={language.label} key={language.label} />
+                ))
+              }
+            </Picker>
+          </View>
+          <View style={styles.pickerItem}>
+            <Text>Currency</Text>
+            <Picker
+              selectedValue={languageContext?.selectedCurrency}
+              onValueChange={(itemValue) => {
+                languageContext?.setSelectedCurrency(itemValue)
+                AsyncStorage.setItem('currency', itemValue)
+              }
+              }>
+              {
+                languageContext?.currencies?.map((currency: any) => (
+                  <Picker.Item label={currency.value} value={currency.label} key={currency.label} />
+                ))
+              }
+            </Picker>
+            {loading && <ActivityIndicator size={'large'} />}
+          </View>
         </View>
-        <View style={styles.pickerItem}>
-          <Text>Currency</Text>
-          <Picker
-            selectedValue={languageContext?.selectedCurrency}
-            onValueChange={(itemValue) => {
-              languageContext?.setSelectedCurrency(itemValue)
-              AsyncStorage.setItem('currency', itemValue)
-            }
-            }>
-            {
-              languageContext?.currencies?.map((currency: any) => (
-                <Picker.Item label={currency.value} value={currency.label} key={currency.label} />
-              ))
-            }
-          </Picker>
-          {loading && <ActivityIndicator size={'large'} />}
-        </View>
-      </View>
-    </ScrollView >
+      </ScrollView >
+    </View>
   );
 }
 
@@ -90,8 +92,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: background.secondary,
     padding: 6,
-    height: '100%',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
   },
   pickerContainer: {
     flexDirection: 'column',
@@ -99,7 +100,6 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   pickerItem: {
-    flex: 1,
     marginRight: 10,
   }
 });

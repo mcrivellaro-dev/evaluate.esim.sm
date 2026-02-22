@@ -93,11 +93,10 @@ export default function Countries() {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
-    backgroundColor: background.primary
+    backgroundColor: background.secondary
   },
   textInput: {
     backgroundColor: 'white',
-    marginBottom: 24
   },
   flagContainer: {
     alignItems: 'center',
